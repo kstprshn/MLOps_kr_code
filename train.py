@@ -44,7 +44,6 @@ def main():
               "random_state": a.seed}
     pipe = Pipeline([("pre", pre), ("clf", RandomForestClassifier(**params))])
 
-    # ---- MLflow: эксперимент, параметры, метрики, модель ----
     mlflow.set_tracking_uri("sqlite:///mlflow.db")      # локально; для сервера: http://host:5000
     mlflow.set_experiment("kaggle-classification")
     with mlflow.start_run(run_name="random_forest"):
